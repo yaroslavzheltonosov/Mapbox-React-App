@@ -1,0 +1,27 @@
+.AddNewPolygon {
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    align-self: flex-start;
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.Input {
+    margin: 5px 0;
+    border: 1px solid #AAA;
+    border-radius: 0.2em;
+    padding: 0.5em 1em;
+    outline: none;
+    font-size: inherit;
+}
+
+.Input:focus {
+    border-color: hsl(181, 51%, 67%);
+    box-shadow: 0 0 5px 0 hsl(181, 51%, 37%);
+}
