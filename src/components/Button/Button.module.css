@@ -1,11 +1,11 @@
 .Primary {
-    font-size: inherit;
+    font-size: 1rem;
     font-weight: bold;
     color: rgba(53, 176, 178);
     background: none;
     border: none;
     outline: none;
-    padding: .5em 1em;
+    padding: .5rem 1rem;
 }
 
 .Primary:hover {
