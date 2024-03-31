@@ -1,6 +1,6 @@
 import {  createContext, useState } from "react";
-import Mapbox from "./Mapbox";
-import { PolygonContextT, PolygonStorage } from "./types";
+import Mapbox from "./components/Mapbox/Mapbox";
+import { PolygonContextT, PolygonStorage } from "./utils/types";
 
 export const PolygonContext = createContext<PolygonContextT>({
   stateContext: [],

@@ -1,2 +1,0 @@
-export const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
-export const DEFAULT_COORDINATES = { LNG: -0.127758, LAT: 51.507351 };
