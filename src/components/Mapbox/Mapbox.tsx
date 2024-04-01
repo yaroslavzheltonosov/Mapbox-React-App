@@ -35,7 +35,7 @@ const Mapbox = () => {
         setPolygons((previousState) =>
             previousState.filter((polygon) => polygon.id !== activePolygonId)
         );
-        setStateContext((previousState) => [...previousState].filter((polygon) => polygon.id !== activePolygonId));
+        setStateContext((previousState) => previousState.filter((polygon) => polygon.id !== activePolygonId));
     };
     const handleDeleteAll = () => {
         draw.current?.deleteAll();
@@ -69,14 +69,14 @@ const Mapbox = () => {
         <div className={styles.MapContainer}>
             <div className={styles.Map} ref={mapRef} />
             <div className={styles.ButtonContainer}>
-                {isPolygonActive && <Button handleActionButton={handleSavePolygon} buttonName="SAVE" buttonClass="Primary" />}
-                {isPolygonActive && isPolygon && <Button handleActionButton={handleRemovePolygon} buttonName="CLEAR" buttonClass="Primary" />}
-                <Button handleActionButton={handleDrawPolygon} buttonName="ADD" buttonClass="Primary" />
-                {isPolygon && <Button handleActionButton={handleDeleteAll} buttonName="DELETE ALL" buttonClass="Primary" />}
+                {isPolygonActive && <Button onActionButton={handleSavePolygon} buttonName="SAVE" buttonClass="Primary" />}
+                {isPolygonActive && isPolygon && <Button onActionButton={handleRemovePolygon} buttonName="CLEAR" buttonClass="Primary" />}
+                <Button onActionButton={handleDrawPolygon} buttonName="ADD" buttonClass="Primary" />
+                {isPolygon && <Button onActionButton={handleDeleteAll} buttonName="DELETE ALL" buttonClass="Primary" />}
             </div>
             <div className={styles.PolygonsFormContainer}>
                 <MapForm setName={setName} name={name} />
-                <Polygons handleEditPolygon={handleEditPolygon} activePolygonId={activePolygonId} />
+                <Polygons onEditPolygon={handleEditPolygon} activePolygonId={activePolygonId} />
             </div>
         </div>
     );

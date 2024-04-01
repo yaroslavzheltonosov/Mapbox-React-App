@@ -12,7 +12,7 @@ type Polygon = {
 
 type SavedPolygon = {
     name: string;
-} & Pick<Polygon, 'coords' | 'id'>
+} & Polygon;
 
 export type PolygonStorage = Polygon | SavedPolygon;
 

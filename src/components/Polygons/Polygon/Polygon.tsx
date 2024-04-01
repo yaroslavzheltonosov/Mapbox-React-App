@@ -6,28 +6,30 @@ import { PolygonContext } from "../../../App";
 type Props = {
     name: string;
     readonly id: string;
-    handleEditPolygon: (id: string) => void;
+    onEditPolygon: (id: string) => void;
     activePolygonId: string;
 }
 
 const Polygon = (props: Props) => {
-    const {name, handleEditPolygon, id, activePolygonId} = props;
+    const {name, onEditPolygon, id, activePolygonId} = props;
     const { setStateContext } = useContext(PolygonContext);
-    const [isEditName, setIsEditName] = useState<boolean>(false);
+    const [isEditNameFormVisible, setIsEditNameFormVisible] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null); 
 
     useEffect(() => {
-        if (isEditName && inputRef.current) {
+        if (isEditNameFormVisible && inputRef.current) {
           inputRef.current.focus();
           inputRef.current.select();
         }
-    }, [isEditName]);
+    }, [isEditNameFormVisible]);
 
     const handleEditName = () => {
-        setIsEditName((previousState) => !previousState);
+        setIsEditNameFormVisible((previousState) => !previousState);
     };
     const handleSavePolygon = () => {
-        if (!inputRef.current || inputRef.current.value.trim() === '') return;
+        if (!inputRef.current || inputRef.current.value.trim() === '') {
+            return;
+        }
         setStateContext((previousState) => {
             return previousState.map((polygon) => {
                 if (polygon.id === id && 'name' in polygon && inputRef.current) {
@@ -36,20 +38,23 @@ const Polygon = (props: Props) => {
                 return polygon;
             })
         })
-        setIsEditName(false);
+        setIsEditNameFormVisible(false);
+    };
+    const handleEditPolygon = () => {
+        onEditPolygon(id);
     };
     return (
         <div className={styles.PolygonContainer}>
-            {isEditName ? (
+            {isEditNameFormVisible ? (
                 <>
                     <input ref={inputRef} />
-                    <Button handleActionButton={handleSavePolygon} buttonName='SAVE' buttonClass="Primary" />
+                    <Button onActionButton={handleSavePolygon} buttonName='SAVE' buttonClass="Primary" />
                 </>
             ) : (
                 <div className={styles.PolygonName}>{name}</div>
             )}
-            <Button handleActionButton={handleEditName} buttonName={isEditName ? 'CANCEL' : 'EDIT NAME'} buttonClass="Primary" />
-            <Button handleActionButton={() => handleEditPolygon(id)} buttonName="EDIT POLYGON" buttonClass="Primary" disabled={activePolygonId === id} />
+            <Button onActionButton={handleEditName} buttonName={isEditNameFormVisible ? 'CANCEL' : 'EDIT NAME'} buttonClass="Primary" />
+            <Button onActionButton={handleEditPolygon} buttonName="EDIT POLYGON" buttonClass="Primary" disabled={activePolygonId === id} />
         </div>
     )
 };
