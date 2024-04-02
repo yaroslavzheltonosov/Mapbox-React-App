@@ -1,7 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import Button from "../../Button/Button";
-import styles from "./Polygon.module.css"
 import { PolygonContext } from "../../../App";
+import Button from "../../Button/Button";
+import Input from "../../Input/Input";
+import styles from "./Polygon.module.css"
 
 type Props = {
     name: string;
@@ -47,7 +48,7 @@ const Polygon = (props: Props) => {
         <div className={styles.PolygonContainer}>
             {isEditNameFormVisible ? (
                 <>
-                    <input ref={inputRef} />
+                    <Input inputClass="Primary" ref={inputRef} />
                     <Button onActionButton={handleSavePolygon} buttonName='SAVE' buttonClass="Primary" />
                 </>
             ) : (

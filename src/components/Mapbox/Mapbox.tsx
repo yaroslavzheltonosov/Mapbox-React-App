@@ -11,7 +11,6 @@ import { MAPBOX_ACCESS_TOKEN } from "../../utils/consts";
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 const Mapbox = () => {
-    // to do: create input custom component
     const { stateContext, setStateContext } = useContext(PolygonContext);
     const [name, setName] = useState<string>('');
     const {

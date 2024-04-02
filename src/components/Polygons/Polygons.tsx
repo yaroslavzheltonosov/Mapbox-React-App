@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Polygon from "./Polygon/Polygon";
 import { PolygonContext } from "../../App";
+import Polygon from "./Polygon/Polygon";
 
 import styles from "../MapForm/MapForm.module.css"
 

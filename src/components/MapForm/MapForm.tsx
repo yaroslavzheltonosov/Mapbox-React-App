@@ -1,5 +1,6 @@
 import { SetStateAction } from "react";
 import styles from "./MapForm.module.css";
+import Input from "../Input/Input";
 
 type Props = {
     setName: React.Dispatch<SetStateAction<string>>;
@@ -18,7 +19,7 @@ const MapForm = (props: Props) => {
         <form className={styles.MapForm} onSubmit={handleFormSubmit}>
             <div className={styles.AddNewPolygon}>
                 <label className={styles.Title} htmlFor="InputName">Title</label>
-                <input className={styles.Input} value={name} onChange={handleSetValueName} id="InputName" placeholder="Enter name"/>
+                <Input inputClass="Primary" value={name} onChange={handleSetValueName} id="InputName" placeholder="Enter name"/>
             </div>
         </form>
     )    

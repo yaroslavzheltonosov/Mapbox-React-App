@@ -5,7 +5,7 @@ type Props = {
     onActionButton: () => void;
     buttonName: string;
     buttonClass: 'Primary';
-} & ComponentProps<'button'>
+} & ComponentProps<'button'>;
 
 const Button = ({ onActionButton, buttonName, buttonClass, ...buttonProps }: Props) => (
     <button onClick={onActionButton} className={styles[buttonClass]} {...buttonProps}>{buttonName}</button>
