@@ -1,0 +1,13 @@
+.Primary {
+    margin: 5px 0;
+    border: 1px solid #AAA;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1rem;
+    outline: none;
+    font-size: 1rem;
+}
+
+.Primary:focus {
+    border-color: hsl(181, 51%, 67%);
+    box-shadow: 0 0 5px 0 hsl(181, 51%, 37%);
+}
